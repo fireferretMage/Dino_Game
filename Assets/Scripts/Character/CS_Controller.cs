@@ -7,7 +7,7 @@ public class CS_Controller : MonoBehaviour
     [SerializeField]
 
     private Rigidbody playerBody;
-    private new Vector3 gravitySpeed;
+    private Vector3 gravitySpeed;
 
     public float jumpSpeed = 2000f;
     public float fallSpeed = -100f;
@@ -30,7 +30,7 @@ public class CS_Controller : MonoBehaviour
 
     void Update ()
     {
-        Debug.Log(doubleJump);
+        //Debug.Log(doubleJump);
 
         if (playerBody.velocity.y < -2) // controls speed going up and coming back down with drag on players rigidbody
         {

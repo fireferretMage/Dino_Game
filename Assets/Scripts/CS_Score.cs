@@ -7,6 +7,7 @@ public class CS_Score : MonoBehaviour
 
     public GameObject scoreTracker;
     public float scoreIncrement = 0.1f;
+    private float plus100 = 0;
 
     public Vector3 minScale ;
     public Vector3 maxScale;
@@ -28,7 +29,7 @@ public class CS_Score : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         /*
         scoreText.font;
@@ -47,9 +48,16 @@ public class CS_Score : MonoBehaviour
         scoreTracker.transform.Translate(0, 0 + scoreIncrement, 0);
 
         
-        scoreNumber = (int)scoreTracker.transform.position.y;
+        scoreNumber = (int)scoreTracker.transform.position.y + plus100; 
 
         scoreText.text = scoreNumber.ToString();
+
+        if (scoreTracker.transform.position.y >= 100f)
+        {
+            plus100 = plus100 + 100f;
+
+            scoreTracker.transform.Translate(0, -100, 0);
+        }
 
         switch (scoreNumber) //changes font colour based on score
         {
