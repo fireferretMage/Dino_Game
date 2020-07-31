@@ -61,7 +61,7 @@ public class CS_Score : MonoBehaviour
 
         switch (scoreNumber) //changes font colour based on score
         {
-            case 0: scoreText.color = Color.grey; break;
+            case 0: scoreText.color = Color.black; break;
 
             case 50: scoreText.color = Color.black; break;
 

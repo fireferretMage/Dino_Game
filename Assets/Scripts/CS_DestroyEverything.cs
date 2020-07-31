@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CS_DestroyEverything : MonoBehaviour
 {
-    GameObject current;
-    GameObject[] gameObjects;
-
     
-    private void OnTriggerEnter(Collider col) //trigger events 
+    GameObject[] gameObjects;
+    public CS_Spawner Spawner;
+
+    public void OnTriggerEnter(Collider col) //trigger events 
     {
 
         //Destroy(col.gameObject);
@@ -16,6 +16,8 @@ public class CS_DestroyEverything : MonoBehaviour
         if (col.tag == "Destructible")
         {
             Destroy(col.gameObject);
+
+            Spawner.groundCounter -= 1;
         }
 
     }

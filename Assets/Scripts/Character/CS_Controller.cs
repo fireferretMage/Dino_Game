@@ -81,10 +81,7 @@ private void OnGUI()
                     playerBody.AddForce(new Vector3(0f, jumpSpeed + 50, 0f), ForceMode.Impulse); // adds power to double jump
                     doubleJumpExtraPower = false;
 
-
-
                 }*/
-
 
 
                 if (doubleJump >= 2)
