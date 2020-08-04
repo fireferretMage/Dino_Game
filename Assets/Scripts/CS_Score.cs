@@ -23,9 +23,10 @@ public class CS_Score : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        scoreText = GameObject.Find("Text Score Change").GetComponent<Text>();
+        scoreTracker = this.gameObject;
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class CS_Score : MonoBehaviour
         scoreText.transform.position = Vector3.Lerp(minMove, maxMove, Time.deltaTime * lerpSpeed);
         */
 
-        Mathf.SmoothStep(0, 4, Mathf.PingPong(Time.time * 5, 1));
+        //Mathf.SmoothStep(0, 4, Mathf.PingPong(Time.time * 5, 1));
 
         scoreTracker.transform.Translate(0, 0 + scoreIncrement, 0);
 

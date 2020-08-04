@@ -23,6 +23,7 @@ public class CS_Spawner : MonoBehaviour
 
     private GameObject lastSpawned;
 
+    public int groundpickNumber = 0;
     //public GameObject spawnPoint;
     //public static Vector3 spawnSize = new Vector3(1f, 1f, 1f);
     //[SerializeField] private Vector3 spawnVector = new Vector3(-520f, 0f,0f);
@@ -46,7 +47,7 @@ public class CS_Spawner : MonoBehaviour
     {
         groundCounter++;
 
-        _intRandomGroundThree = randomGroundThree.Next(0, 3);
+        _intRandomGroundThree = randomGroundThree.Next(groundpickNumber, groundpickNumber + 3);
         _intRandomTwo = randomTwo.Next(0, 2);
         //Debug.Log(_intRandomTwo);
 
@@ -58,7 +59,7 @@ public class CS_Spawner : MonoBehaviour
         {
             groundRotation = 180f;
         }
-        GameObject newGameObject = Instantiate (groundPrefab[_intRandomTwo], new Vector3(-620f, 0f, 0f), Quaternion.Euler(0f, groundRotation, 0f));
+        GameObject newGameObject = Instantiate (groundPrefab[_intRandomGroundThree], new Vector3(-620f, 0f, 0f), Quaternion.Euler(0f, groundRotation, 0f));
         newGameObject.GetComponent<CS_GroundLevelSpeed>().Init(lastSpawned);
         lastSpawned = newGameObject;
 
