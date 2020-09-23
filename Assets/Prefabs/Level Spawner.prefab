@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1112694042595860414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112694042595860412}
+  - component: {fileID: 1112694042595860415}
+  m_Layer: 0
+  m_Name: Level Spawner
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112694042595860412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112694042595860414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -520, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112694042595860415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112694042595860414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9f59e03e3d0b343b7ee203bd5d3b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPrefab:
+  - {fileID: 951682806375862264, guid: 1039483b03a19c448802e9920bbf3214, type: 3}
+  - {fileID: 1569921981304557991, guid: 6f38b530242072f41b07e40d19735e49, type: 3}
+  - {fileID: 5074281835186357795, guid: 6f29e27fd415ca6488ebb99d82ab4ccc, type: 3}
+  - {fileID: 3560007040197846886, guid: bc79d3268828b864581e7294fda0c53e, type: 3}
+  - {fileID: 8661264182667723626, guid: 09a82de3db69e6e408227d498a243fd2, type: 3}
+  - {fileID: 5894219967554123939, guid: ccd8521f08f1f134eab7b5d490cff6cb, type: 3}
+  groundCounter: 0
+  maxGroundSpawnNumber: 10
+  groundpickNumber: 4

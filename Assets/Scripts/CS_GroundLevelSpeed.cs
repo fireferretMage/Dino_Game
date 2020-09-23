@@ -7,54 +7,36 @@ public class CS_GroundLevelSpeed : MonoBehaviour
     [SerializeField] private GameObject _obj;
     [SerializeField] private Rigidbody _rb;
     //[SerializeField] private GameObject _obj;
+
     static float offset;
 
+    public CS_Spawner Spawner;
+    float lastSpawnedTranslate;
 
     public void Awake()
     {
-        
-        this.tag = "Destructible";
 
-                       
+        //lastSpawnedTranslate = Spawner.lastSpawnedBoundsVector.x;
+
         _rb = GetComponent<Rigidbody>();
        // Collider col = GetComponent<Collider>();
        // col.enabled = false;
 
-        _rb.AddForce(new Vector3(CS_Spawner.levelSpeed, 0f, 0f), ForceMode.Force);
+        
 
         _obj = this.gameObject;
+
+        _obj.tag = "Platform";
+
+       
+        //_obj.transform.position = new Vector3(0.0f, this.gameObject.transform.position.x - lastSpawnedTranslate * 2, 0.0f) ;
+
+        _rb.AddForce(new Vector3(CS_Spawner.levelSpeed, 0f, 0f), ForceMode.Force);
 
         //_obj.transform.localScale = CS_Spawner.spawnSize;
 
         //layermask is like tags but it will ignore things inside the that set layer https://www.youtube.com/watch?v=EINgIoTG8D4
 
-        //RaycastHit hit;
-        //Vector3 spawnedPosition = transform.position;
-
-        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, Mathf.Infinity))
-        //{
-        //    try
-        //    {
-        //        if (hit.collider.tag == "Destructible")
-        //        {
-        //            Debug.Log(hit.transform.position); 
-        //            this.transform.position = Vector3.MoveTowards(spawnedPosition, hit.transform.position, 0f) - new Vector3(0f, 0f, 0f);
-        //        }
-               
-
-        //    } catch
-        //    {
-        //        Debug.Log(hit.transform);
-
-        //    }
-
-          
-
-        //}
-        //Debug.Log(CS_Spawner.levelSpeed);
-
-
-       // col.enabled = true;
 
     }
 
@@ -72,10 +54,10 @@ public class CS_GroundLevelSpeed : MonoBehaviour
 
             CS_GroundLevelSpeed.offset = ((otherCollider.bounds.extents.x) * 2f);
         }
-        
-        
-        
-        this.transform.position = new Vector3 (Last.transform.position.x + offset, transform.position.y, transform.position.z);
+
+
+
+        this.transform.position = new Vector3(Last.transform.position.x - offset, transform.position.y, transform.position.z);
 
 
     }

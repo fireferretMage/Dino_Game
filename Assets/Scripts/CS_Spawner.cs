@@ -22,30 +22,21 @@ public class CS_Spawner : MonoBehaviour
     private float groundMinus;
 
     private GameObject lastSpawned;
+    private Collider lastSpawnedCollider;
+    public Vector3 lastSpawnedBoundsVector;
+
+    public GameObject PlatformDestroyer;
+    private bool isPlatformDestroyer = false;
+
+    public int maxGroundSpawnNumber = 10;
 
     public int groundpickNumber = 0;
-    //public GameObject spawnPoint;
-    //public static Vector3 spawnSize = new Vector3(1f, 1f, 1f);
-    //[SerializeField] private Vector3 spawnVector = new Vector3(-520f, 0f,0f);
-
-
-
-
-
-    public void Awake()
-    {
-        //gameObject.transform.position = spawnVector;
-        //itemsToPickFrom.transform.localScale = spawnSize;
-
-        
-        //Mathf.Round(1f,0f); //this one
-
-        //new [] groundPrefab.transform.rotaion =  //Math.Round(Decimal, rnd); //round the random number produced by CS_Random.rnd
-    }
+    
 
     public void spawnGround ()
     {
-        groundCounter++;
+        
+        Debug.Log(groundCounter);
 
         _intRandomGroundThree = randomGroundThree.Next(groundpickNumber, groundpickNumber + 3);
         _intRandomTwo = randomTwo.Next(0, 2);
@@ -59,24 +50,35 @@ public class CS_Spawner : MonoBehaviour
         {
             groundRotation = 180f;
         }
-        GameObject newGameObject = Instantiate (groundPrefab[_intRandomGroundThree], new Vector3(-620f, 0f, 0f), Quaternion.Euler(0f, groundRotation, 0f));
-        newGameObject.GetComponent<CS_GroundLevelSpeed>().Init(lastSpawned);
-        lastSpawned = newGameObject;
 
+        GameObject newGameObject = Instantiate (groundPrefab[_intRandomGroundThree], new Vector3(0f + lastSpawnedBoundsVector.x, 0f, 0f), Quaternion.Euler(0f, groundRotation, 0f));
+        newGameObject.GetComponent<CS_GroundLevelSpeed>().Init(lastSpawned);
+        lastSpawned = newGameObject; //find last spawned object
+        lastSpawnedCollider = lastSpawned.GetComponent<Collider>(); //get last spawned objects to collider
+        lastSpawnedBoundsVector = lastSpawnedCollider.bounds.size; //convert last spawned objects collider to Vector3 then minus the spawn position by half the amount to have a seamless loop
+        
+
+        if (isPlatformDestroyer == false)
+        {
+            Instantiate(PlatformDestroyer, new Vector3(lastSpawnedBoundsVector.x * 7 - 620f, 0f, 0f), Quaternion.Euler(0f, 0f, 0f));
+
+            isPlatformDestroyer = true;
+        }
+        groundCounter++;
     }
+
 
     // Update is called once per frame
     public void Update()
     {
 
-        if (groundCounter <= 5)
+        if (groundCounter <= maxGroundSpawnNumber)
         {
             spawnGround();
 
-            groundMinus = groundMinus + 270.07f;
-
+            //groundMinus = groundMinus + 270.07f;
+            
         }
-
 
         //groundPrefab.transform.position.y = groundRotation;
     }

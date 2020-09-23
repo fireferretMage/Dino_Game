@@ -8,16 +8,26 @@ public class CS_DestroyEverything : MonoBehaviour
     GameObject[] gameObjects;
     public CS_Spawner Spawner;
 
+    public void Awake()
+    {
+        Spawner = GameObject.Find("Level Spawner").GetComponent(typeof(CS_Spawner)) as CS_Spawner;
+    }
+
+    
+
     public void OnTriggerEnter(Collider col) //trigger events 
     {
 
         //Destroy(col.gameObject);
 
-        if (col.tag == "Destructible")
+        if (col.tag == "Platform")
         {
+            Spawner.groundCounter -= 1;
             Destroy(col.gameObject);
 
-            Spawner.groundCounter -= 1;
+            
+            Debug.Log(Spawner.groundCounter);
+            
         }
 
     }
