@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5487145587554720724}
   - component: {fileID: 8826237293503965633}
   - component: {fileID: 8826237293503965632}
+  - component: {fileID: -3912361828026330797}
   m_Layer: 0
   m_Name: Background_Mountains002
   m_TagString: Untagged
@@ -144,6 +145,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2544, y: 876.7, z: 260}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3912361828026330797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826237293503965639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6c47a288150c84bb9b4862fbaba424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obj: {fileID: 0}
+  _rb: {fileID: 0}
 --- !u!1001 &741735008321143064
 PrefabInstance:
   m_ObjectHideFlags: 0

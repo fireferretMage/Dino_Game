@@ -98,12 +98,12 @@ private void OnGUI()
 
                 doubleJump++; //adds to double jump counter
 
-                 // if (doubleJumpExtraPower == true) //can he use 
-                 //{
-                 //    playerBody.AddForce(new Vector3(0f, jumpSpeed + 50, 0f), ForceMode.Impulse); // adds power to double jump
-                 //    doubleJumpExtraPower = false;
+                  if (doubleJumpExtraPower == true) //can he use 
+                 {
+                     playerBody.AddForce(new Vector3(0f, jumpSpeed + 50, 0f), ForceMode.Impulse); // adds power to double jump
+                    doubleJumpExtraPower = false;
 
-                 //}
+                 }
                
                 
 

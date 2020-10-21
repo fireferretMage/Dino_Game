@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CS_Body_Rotations : MonoBehaviour
 {
-    GameObject Right_Leg;
-    GameObject Left_Leg;
+    public GameObject Right_Leg;
+    public GameObject Left_Leg;
     //GameObject go_Collider;
 
     public float speed = 6f;
@@ -19,8 +19,8 @@ public class CS_Body_Rotations : MonoBehaviour
 
     void Awake()
     {
-        Right_Leg = GameObject.Find("Dino_Right_Leg");
-        Left_Leg = GameObject.Find("Dino_Left_Leg");
+        //Right_Leg = GameObject.Find("Dino_Right_Leg");
+        //Left_Leg = GameObject.Find("Dino_Right_Leg");
         //go_Collider = GameObject.Find("Collider");
     }
 

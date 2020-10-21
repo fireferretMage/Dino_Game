@@ -18,15 +18,19 @@ public class CS_DestroyEverything : MonoBehaviour
     public void OnTriggerEnter(Collider col) //trigger events 
     {
 
+
+        if (col.tag == "Destructible")
+        {
+            Destroy(col.gameObject);
+
+
+        }
         //Destroy(col.gameObject);
 
         if (col.tag == "Platform")
         {
             Spawner.groundCounter -= 1;
             Destroy(col.gameObject);
-
-            
-            Debug.Log(Spawner.groundCounter);
             
         }
 

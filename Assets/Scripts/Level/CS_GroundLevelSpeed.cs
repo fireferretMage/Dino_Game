@@ -13,25 +13,18 @@ public class CS_GroundLevelSpeed : MonoBehaviour
     public CS_Spawner Spawner;
     float lastSpawnedTranslate;
 
+
     public void Awake()
     {
-
-        //lastSpawnedTranslate = Spawner.lastSpawnedBoundsVector.x;
-
         _rb = GetComponent<Rigidbody>();
-       // Collider col = GetComponent<Collider>();
-       // col.enabled = false;
-
         
-
         _obj = this.gameObject;
 
         _obj.tag = "Platform";
 
-       
+        _rb.AddForce(new Vector3(CS_Spawner.levelSpeed, 0f, 0f), ForceMode.Force);
         //_obj.transform.position = new Vector3(0.0f, this.gameObject.transform.position.x - lastSpawnedTranslate * 2, 0.0f) ;
 
-        _rb.AddForce(new Vector3(CS_Spawner.levelSpeed, 0f, 0f), ForceMode.Force);
 
         //_obj.transform.localScale = CS_Spawner.spawnSize;
 
@@ -39,6 +32,7 @@ public class CS_GroundLevelSpeed : MonoBehaviour
 
 
     }
+
 
     public void Init(GameObject Last)
     {

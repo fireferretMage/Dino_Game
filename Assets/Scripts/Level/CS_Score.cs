@@ -20,7 +20,8 @@ public class CS_Score : MonoBehaviour
     public Text scoreText;
 
     float scoreNumber;
-    
+
+    public float maxThreatSize;
 
     // Start is called before the first frame update
     void Awake()
@@ -62,21 +63,21 @@ public class CS_Score : MonoBehaviour
 
         switch (scoreNumber) //changes font colour based on score
         {
-            case 0: scoreText.color = Color.black; break;
+            case 0: scoreText.color = Color.black; maxThreatSize = 0.6f; break;
 
-            case 50: scoreText.color = Color.black; break;
+            case 50: scoreText.color = Color.black; maxThreatSize = 0.8f; break;
 
-            case 100: scoreText.color = Color.red; break;
+            case 100: scoreText.color = Color.red; maxThreatSize = 1f; break;
 
-            case 250: scoreText.color = Color.magenta; break;
+            case 250: scoreText.color = Color.magenta; maxThreatSize = 1.2f; break;
 
-            case 500: scoreText.color = Color.yellow; break;
+            case 500: scoreText.color = Color.yellow; maxThreatSize = 1.4f; break;
 
-            case 1000: scoreText.color = Color.cyan; break;
+            case 1000: scoreText.color = Color.cyan; maxThreatSize = 2f; break;
 
-            case 1200: scoreText.color = Color.blue; break;
+            case 1200: scoreText.color = Color.blue; maxThreatSize = 2.25f; break;
 
-            case 1400: scoreText.color = Color.green; break;
+            case 1400: scoreText.color = Color.green; maxThreatSize = 2.5f; break;
 
             case 1600: scoreText.color = Color.blue; break;
 
@@ -86,7 +87,7 @@ public class CS_Score : MonoBehaviour
 
             case 1900: scoreText.color = Color.red; break;
 
-            case 2000: scoreText.color = Color.black; break;
+            case 2000: scoreText.color = Color.black; maxThreatSize = 3f; break;
 
         }
 
